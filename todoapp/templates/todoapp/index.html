@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 class="title text-4xl"> To-Do List</h1>
+        {% if not user.is_authenticated %}
+            <div class="count-box mb-6" style="margin-bottom:20px">
+                <a href="{% url "login" %}"><span id="login-btn">Login</span></a> 
+                <a href="{% url "register" %}"><span id="login-btn">Register</span></a> 
+            </div>
+        {% else %}
+            <p class="user">Username: {{user.username}}</p>
+        {% endif %}
+
+    <form class="input-section" id="input-form" method="POST" >
+                {% csrf_token %}
+                <input name="task-input" type="text" id="task-input" placeholder="Add a new task..." required />
+                <button id="add-btn" type="submit">Add</button>
+            </form>
+           {% if messages %}
+                {% for message in messages %}
+                    <p class="task-item message" style="padding: 10px;background-color: #3ef292ac;border-radius: 5px; margin-bottom:15px;" >{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            {% block list %}{% endblock list %}
+
+            <ul id="task-list">
+
+                {% for task in tasks %}
+                    <form method="POST" action="{% url 'complete_task' task.pk %}">
+                        {% if not task.completed %}
+                        {% csrf_token %}
+                        <li class="item task-item">
+                            <input type="checkbox" name="completed" class="checkbox" onchange="this.form.submit()" >
+                                <span class="task">{{ task.task }}</span>
+                            <a href="{% url 'delete_task' task.pk %}" class="delete-btn">X</a>
+                        </li>
+                        {% else %}
+                            <li class="item completed-task">
+                                {% csrf_token %}
+                                <input type="checkbox" name="completed" class="checkbox" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+                                    <span class="completed-task"> {{ task.task }} </span>
+                                <a href="{% url 'delete_task' task.pk %}" class="delete-btn">X</a>
+                            </li>
+                        {% endif %}
+                    </form>
+                    
+                {% empty %}
+                    <li class="item task-item">
+                        <span>No tasks available. Please add a task.</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="count-box">
+                <span id="task-count">Total: {{ tasks|length }}</span>
+                
+                <a href="{% url "delete_all_tasks" %}"><span id="clear-btn">Clear All</span></a>
+                
+            </div>
+            <div class="count-box">
+                <a href="{% url "logout" %}"><span id="login-btn">Logout</span></a> 
+            </div>
+{% endblock content %}

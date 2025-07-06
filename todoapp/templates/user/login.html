@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+  <link rel="stylesheet" href="{% static 'css/out.css' %}">
+</head>
+<body class="bg-gradient-to-r from-emerald-200 via-emerald-200 to-emerald-200 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-sm">
+    <h2 class="text-2xl font-bold text-center text-emerald-700 mb-6">Log in</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p class="task-item message" style="padding: 10px;background-color: #3ef292ac;border-radius: 5px; margin-bottom:15px;" >{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" class="space-y-5">
+      {% csrf_token %}
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700">Username<sup>*</sup></label>
+        <input type="text" id="username" name="name" required
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"/>
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password<sup>*</sup></label>
+        <input type="password" id="password" name="password" required
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"/>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded-xl transition duration-300">
+        Sign Up
+      </button>
+    </form>
+
+    <p class="text-sm text-gray-500 text-center mt-6">
+      Already a member? <a href="{% url "register" %}" class="text-emerald-600 hover:underline">Register</a>
+      
+    </p>
+  </div>
+  
+
+</body>
+</html>
+{% comment %} npx @tailwindcss/cli -i ./todoapp/static/css/input.css -o ./todoapp/static/css/out.css --watch {% endcomment %}

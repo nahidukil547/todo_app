@@ -1,0 +1,243 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+    outline   : 0;
+}
+
+body {
+    font-family: sans-serif;
+    background : #131723;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+  .todo_body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    padding-top: 50px;
+  }
+  
+  .todo-container {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(252, 252, 252, 0.447);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: inset 0px 0px 10px #bebebe, inset -1px -1px 2px #ffffff;
+
+  }
+  
+  #add-btn {
+    padding: 10px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #add-btn:hover {
+    background-color: #45a049;
+  }
+  
+  ul#task-list {
+    list-style: none;
+  }
+  
+  ul#task-list .completed-task span{
+    padding-left: 5px;
+    text-decoration-line: line-through;    
+  }
+
+  .completed-task{
+    padding-left: 5px;
+    text-decoration-line: line-through;    
+  }
+
+  ul#task-list li span {
+    padding-left: 5px;
+  }
+  
+  ul#task-list li {
+    background-color: #e8e8e8e1;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #4caf50;
+    position: relative;
+  }
+  
+  .delete-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #ff5555;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    text-decoration: none;
+    
+  }
+  
+  
+  .delete-btn:hover {
+    color: #ff0000;
+  }
+  
+  .learn-more-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  }
+  
+  .learn-more-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  /* button  */
+  .btn-outline {
+    padding: 12px 24px;
+    background: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+  }
+  
+  .btn-outline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #007bff;
+    z-index: -1;
+    transition: width 0.3s ease;
+  }
+  
+  .btn-outline:hover::before {
+    width: 100%;
+  }
+  
+  .btn-outline:hover {
+    color: white;
+  }
+  
+  .container{
+    width: 60%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .btns{
+    margin-top: 20px;
+  }
+  .btn-neu {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #333;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 12px;
+    box-shadow: inset 1px 1px 4px #bebebe, inset -6px -6px 12px #ffffff;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .btn-neu:hover {
+    box-shadow:  2px 2px 4px #bebebe, -2px -2px 4px #ffffff;
+  }
+  
+  .footer-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 15px;
+  color: #555;
+}
+.count-box{
+    margin-top: 20px;
+}
+
+#clear-btn, #login-btn, #register-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+#clear-btn{
+  background-color: #ff5555 ;
+}
+#login-btn{
+  background-color: #1bbced ;
+}
+#register-btn{
+  background-color: #06fe71fa ;
+}
+
+
+#clear-btn:hover{
+   background-color: #e63946;
+}
+
+
+#login-btn:hover {
+  background-color: #22acd6;
+}
+
+#register-btn:hover {
+  background-color: #30dc7a ;
+}

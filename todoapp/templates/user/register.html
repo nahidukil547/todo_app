@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="{% static 'css/out.css' %}">
+</head>
+<body class="bg-gradient-to-br from-emerald-300 to-gray-300 min-h-screen flex items-center justify-center font-sans">
+
+  <div class="bg-white rounded-2xl shadow-2xl p-10 w-full max-w-md transition-all duration-300">
+    <h2 class="text-3xl font-bold text-center text-emerald-500 mb-6">Create Account</h2>
+
+    {% if messages %}
+      {% for message in messages %}
+          <p class="task-item message" style="padding: 10px;background-color: #3ef292ac;border-radius: 5px; margin-bottom:15px;" >{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST" class="space-y-5">
+      {% csrf_token %}
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Username<sup>*</sup></label>
+        <input type="text" id="name" name="name" required
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400"/>
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email<sup>*</sup></label>
+        <input type="email" id="email" name="email" required
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400"/>
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password<sup>*</sup></label>
+        <input type="password" id="password" name="password" required
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400"/>
+      </div>
+
+      <div>
+        <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+        <input type="number" id="age" name="age" required min="0"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400"/>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded-xl transition duration-300">
+        Register
+      </button>
+    </form>
+
+    <p class="text-sm text-gray-500 text-center mt-6">
+      Already have an account? <a href="{% url 'login' %}" class="text-emerald-600 hover:underline">Login</a>
+    </p>
+  </div>
+
+</body>
+</html>

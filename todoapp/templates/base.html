@@ -1,0 +1,53 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>To-Do List</title>
+<link rel="stylesheet" href="{% static "css/style.css" %}" />
+  <link rel="stylesheet" href="{% static 'css/out.css' %}">
+</head>
+<body>
+
+    <div class="todo_body"> 
+        <div class="todo-container" >
+            <div class="header">
+                
+                
+            <div class="form-section">
+                
+                {% block content %}
+
+                {% endblock content %}
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+    <!-- <div class="container" id="btns">
+        <div class="btns" >
+            <button style="margin:10px;" class="btn btn-neu">Learn 1</button>
+            <button style="margin:10px;" class="btn btn-outline">Learn 2</button>
+        </div>
+        
+        <div class="add-btn btns" id="addBtn">
+            <h1 style="color: wheat; margin: 50px;">Select Button for your own</h1>
+        </div>
+
+    </div> -->
+
+    {% comment %} <script src="{% static "todoapp/main.js" %}"></script> {% endcomment %}
+    {% comment %} <script >
+        const checkbox = liElement.querySelector('input[name="checkbox"]');
+        checkbox.addEventListener('change', function () {
+            tasks[index].completed = checkbox.checked;
+            saveTasks();
+            renderTasks();
+        });
+    </script> {% endcomment %}
+</body>
+</html>
+
+
